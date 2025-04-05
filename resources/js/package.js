@@ -6,7 +6,7 @@ window.Vue.use(VModal);
 window.Vue.use(BootstrapVue);
 
 export default new window.Vue({
-  el: '#app-package-translations',
+  el: '#app-files',
   components: { SampleListing },
   data: {
     filter: '',
@@ -49,7 +49,7 @@ export default new window.Vue({
       if (this.validateForm()) {
         this.addError.name = null;
         if (this.action === 'Add') {
-          ProcessMaker.apiClient.post('admin/package-translations', {
+          ProcessMaker.apiClient.post('admin/files', {
             name: this.sample.name,
             status: this.sample.status,
           })
@@ -69,7 +69,7 @@ export default new window.Vue({
               this.$refs.modal.hide();
             });
         } else {
-          ProcessMaker.apiClient.patch(`admin/package-translations/${this.sample.id}`, {
+          ProcessMaker.apiClient.patch(`admin/files/${this.sample.id}`, {
             name: this.sample.name,
             status: this.sample.status,
           })

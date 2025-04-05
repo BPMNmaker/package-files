@@ -1,17 +1,17 @@
 <?php
 
-namespace ProcessMaker\Package\Translations;
+namespace ProcessMaker\Package\Files;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use ProcessMaker\Package\Packages\Events\PackageEvent;
-use ProcessMaker\Package\Translations\Http\Middleware\AddToMenus;
-use ProcessMaker\Package\Translations\Listeners\PackageListener;
+use ProcessMaker\Package\Files\Http\Middleware\AddToMenus;
+use ProcessMaker\Package\Files\Listeners\PackageListener;
 
 class PackageServiceProvider extends ServiceProvider
 {
     // Assign the default namespace for our controllers
-    protected $namespace = '\ProcessMaker\Package\Translations\Http\Controllers';
+    protected $namespace = '\ProcessMaker\Package\Files\Http\Controllers';
 
     /**
      * If your plugin will provide any services, you can register them here.
@@ -21,11 +21,11 @@ class PackageServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'package-translations-migrations');
+        ], 'files-migrations');
 
         $this->publishes([
-            __DIR__ . '/../public' => public_path('vendor/BPMNmaker/package-translations'),
-        ], 'package-translations');
+            __DIR__ . '/../public' => public_path('vendor/BPMNmaker/files'),
+        ], 'files');
     }
 
     public function register()
@@ -68,7 +68,7 @@ class PackageServiceProvider extends ServiceProvider
 
         $this->registerPublishing();
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'package-translations');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'files');
 
         $this->app['events']->listen(PackageEvent::class, PackageListener::class);
     }

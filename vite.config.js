@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import istanbul from 'vite-plugin-istanbul';
 import convertToMixManifest from './resources/vite2webpack';
 
-const libraryName = 'package-translations';
+const libraryName = 'files';
 
 export default defineConfig({
   resolve: {

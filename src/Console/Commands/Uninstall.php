@@ -1,6 +1,6 @@
 <?php
 
-namespace ProcessMaker\Package\Translations\Console\Commands;
+namespace ProcessMaker\Package\Files\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class Uninstall extends Command
      *
      * @var string
      */
-    protected $signature = 'package-translations:uninstall';
+    protected $signature = 'files:uninstall';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Uninstall Package Translations Package';
+    protected $description = 'Uninstall Files Package';
 
     /**
      * Execute the console command.
@@ -27,6 +27,6 @@ class Uninstall extends Command
      */
     public function handle()
     {
-        $this->info('Package Translations package Uninstalled');
+        $this->info('Files package Uninstalled');
     }
 }

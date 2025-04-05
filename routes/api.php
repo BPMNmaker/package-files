@@ -1,8 +1,8 @@
 <?php
 
-use ProcessMaker\Package\Translations\Http\Controllers\TranslationsController;
+use ProcessMaker\Package\Files\Http\Controllers\FilesController;
 
 Route::group(['middleware' => ['auth:api', 'bindings']], function () {
-    Route::get('admin/package-translations/fetch', [TranslationsController::class, 'fetch'])->name('package.skeleton.fetch');
-    Route::apiResource('admin/package-translations', TranslationsController::class);
+    Route::get('admin/files/fetch', [FilesController::class, 'fetch'])->name('package.files.fetch');
+    Route::apiResource('admin/files', FilesController::class);
 });

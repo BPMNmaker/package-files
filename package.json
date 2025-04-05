@@ -1,11 +1,11 @@
 {
-  "name": "package-translations",
+  "name": "files",
   "version": "0.0.4",
   "description": "Package skeleton to start a develop in PM 4",
   "author": "DevOps <devops@hamidshariati.ir>",
   "license": "ISC",
   "type": "module",
-  "homepage": "https://github.com/BPMNmaker/package-translations",
+  "homepage": "https://github.com/BPMNmaker/files",
   "scripts": {
     "dev": "vite build --watch",
     "watch": "vite build --watch",

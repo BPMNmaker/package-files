@@ -1,24 +1,24 @@
 <?php
 
-namespace ProcessMaker\Package\Translations\Http\Controllers;
+namespace ProcessMaker\Package\Files\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ProcessMaker\Http\Controllers\Controller;
 use ProcessMaker\Http\Resources\ApiCollection;
-use ProcessMaker\Package\Translations\Models\Translatable;
+use ProcessMaker\Package\Files\Models\Sample;
 use RBAC;
 use URL;
 
-class TranslationsController extends Controller
+class FilesController extends Controller
 {
     public function index()
     {
-        return view('package-translations::index');
+        return view('files::index');
     }
 
     public function fetch(Request $request)
     {
-        $query = Translatable::query();
+        $query = Sample::query();
 
         $filter = $request->input('filter', '');
         if (!empty($filter)) {
@@ -42,7 +42,7 @@ class TranslationsController extends Controller
 
     public function store(Request $request)
     {
-        $sample = new Translatable();
+        $sample = new Sample();
         $sample->fill($request->json()->all());
         $sample->saveOrFail();
 
@@ -51,7 +51,7 @@ class TranslationsController extends Controller
 
     public function update(Request $request, $license_generator)
     {
-        Translatable::where('id', $license_generator)->update([
+        Sample::where('id', $license_generator)->update([
             'name' => $request->get('name'),
             'status' => $request->get('status'),
         ]);
@@ -61,7 +61,7 @@ class TranslationsController extends Controller
 
     public function destroy($license_generator)
     {
-        Translatable::find($license_generator)->delete();
+        Sample::find($license_generator)->delete();
 
         return response([], 204);
     }

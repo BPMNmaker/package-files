@@ -1,8 +1,8 @@
 <?php
 
-use ProcessMaker\Package\Translations\Http\Controllers\TranslationsController;
+use ProcessMaker\Package\Files\Http\Controllers\FilesController;
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('admin/package-translations', [TranslationsController::class, 'index'])->name('package.translation.index');
-    Route::get('package-translations', [TranslationsController::class, 'index'])->name('package.translation.tab.index');
+    Route::get('admin/files', [FilesController::class, 'index'])->name('package.files.index');
+    Route::get('files', [FilesController::class, 'index'])->name('package.files.tab.index');
 });

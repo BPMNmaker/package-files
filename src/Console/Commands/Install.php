@@ -1,6 +1,6 @@
 <?php
 
-namespace ProcessMaker\Package\Translations\Console\Commands;
+namespace ProcessMaker\Package\Files\Console\Commands;
 
 use Artisan;
 use ProcessMaker\Console\PackageInstallCommand;
@@ -12,14 +12,14 @@ class Install extends PackageInstallCommand
      *
      * @var string
      */
-    protected $signature = 'package-translations:install';
+    protected $signature = 'files:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install Package Translations Package';
+    protected $description = 'Install Files Package';
 
     /**
      * Publish assets
@@ -29,7 +29,7 @@ class Install extends PackageInstallCommand
     {
         $this->info('Publishing assets');
         Artisan::call('vendor:publish', [
-            '--tag' => 'package-translations',
+            '--tag' => 'files',
             '--force' => true,
         ]);
     }
@@ -55,6 +55,6 @@ class Install extends PackageInstallCommand
     public function handle()
     {
         parent::handle();
-        $this->info('Package Translations has been installed');
+        $this->info('Files has been installed');
     }
 }

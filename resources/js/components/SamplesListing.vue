@@ -115,7 +115,7 @@ export default {
             `Are you sure to inactive the sample '${data.name}'?`,
             '',
             () => {
-              ProcessMaker.apiClient.delete(`admin/package-translations/${data.id}`).then(() => {
+              ProcessMaker.apiClient.delete(`admin/files/${data.id}`).then(() => {
                 ProcessMaker.alert(`Sample ${data.name} has been deleted`, 'warning');
                 this.$emit('reload');
               });
@@ -133,7 +133,7 @@ export default {
       // Load from our api client
       ProcessMaker.apiClient
         .get(
-          `admin/package-translations/fetch?page=${this.page}&per_page=${this.perPage}&filter=${this.filter}&order_by=${this.orderBy}&order_direction=${this.orderDirection}`,
+          `admin/files/fetch?page=${this.page}&per_page=${this.perPage}&filter=${this.filter}&order_by=${this.orderBy}&order_direction=${this.orderDirection}`,
         )
         .then((response) => {
           this.data = this.transform(response.data);

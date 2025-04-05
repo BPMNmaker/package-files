@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Translations;
+namespace Tests\Files;
 
 use Tests\TestCase;
 
